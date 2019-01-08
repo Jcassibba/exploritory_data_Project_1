@@ -6,5 +6,6 @@ subSetData <- data[data$Date %in% c("1/2/2007","2/2/2007") ,]
 dateTime <- strptime(paste(subSetData$Date, subSetData$Time, sep = "", rm.na=TRUE), "%d/%m/%y %H:%M:%S")
 globalActivePower <- as.numeric(subSetData$Global_active_power)
 png("plot2.png", width=480, height=480)
-plot(dateTime, globalActivePower,type = "1", xlab="", ylab ="Global Active Power (Killowatts)")
+plot(dateTime, globalActivePower,type = "b", xlab="", ylab ="Global Active Power (Killowatts)", 
+     xlim=c(0,+20), ylim = c(0,+5000))
 dev.off()
